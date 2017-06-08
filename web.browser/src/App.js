@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="ima-poet">
-        { this.state.data.map(message => (
-          <p className="App-intro">{message.message}</p>)
+        { this.state.data.map(messages => (
+          <p>{messages.message}</p>)
         )}
         </div>
       </div>
