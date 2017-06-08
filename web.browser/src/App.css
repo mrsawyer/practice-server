@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  background-image: url('./fish.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+}
+.ima-poet{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+.App-intro{
+  width: 100px;
+}
+
+.ima-poet:nth-child(odd) {
+    align-self: flex-end;
+}
+
+.App-intro {
+  font-size: large;
+}
