@@ -6,28 +6,25 @@ const app = express();
 
 const PORT = 3000;
 
-const dbconfig = {
-  user: 'practice',
-  database: 'practice',
-  password: 'practice',
-  host: 'localhost',
-  port: 5432,
-}
+const authRouter = express.Router();
+const apiRouter = express.Router();
 
-const db = pgp(dbconfig);
+const apiRoutes = require('./routes/api');
+const authRoutes = require('./routes/auth');
+
+// module.exports = {
+//   user: 'practice',
+//   database: 'practice',
+//   password: 'practice',
+//   host: 'localhost',
+//   port: 5432,
+// }
+
+app.use('/api', apiRoutes(apiRouter));
+
+app.use('/auth', authRoutes(authRouter));
 
 app.use(express.static(__dirname + '/public/build'));
-
-app.get('/theinfo', cors(), (req, res) => {
-  db.any('SELECT * FROM messages')
-    .then(data => {
-      res.json(data);
-    })
-    .catch(error => {
-      console.log('ERROR:', error);
-      res.status(500).end();
-    })
-})
 
 app.listen(PORT, err => {
   err && console.log(err);

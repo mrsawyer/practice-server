@@ -8,7 +8,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/theinfo')
+    fetch('http://localhost:3000/auth/fish/secretfish')
       .then(response => response.json())
       .then(data => this.setState({ data }))
   }
@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <div className="ima-poet">
         { this.state.data.map(messages => (
-          <p>{messages.message}</p>)
+          <p>{messages.name}</p>)
         )}
         </div>
       </div>
