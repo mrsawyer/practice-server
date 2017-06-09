@@ -18,6 +18,12 @@ module.exports = (router) => {
     ]);
   });
 
+  router.get('/nottoday', cors(), (req, res) => {
+    res.json([
+      { name: 'No Fishes' }
+    ])
+  });
+
   return router;
 
 };

@@ -6,9 +6,7 @@ module.exports = (router) => {
   router.use((req, res, next) => {
 
     if (!req.authenticated){
-      res.render('/nottoday', {
-            name: 'Hello - Please Login To Your Account'
-        });
+      res.redirect('/api/nottoday');
     } else {
         next();
     }
@@ -17,12 +15,6 @@ module.exports = (router) => {
   router.get('/secretfish', (req, res) => {
     res.json([
       { name: 'Lochness' }
-    ])
-  });
-
-  router.get('/nottoday', (req, res) => {
-    res.json([
-      { name: 'No Fishes' }
     ])
   });
 
